@@ -1,0 +1,46 @@
+services:
+  db:
+    image: postgres:17
+    container_name: drivenow_db
+    environment:
+      POSTGRES_DB: Carpool
+      POSTGRES_USER: java
+      POSTGRES_PASSWORD: script
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: drivenow_rabbitmq
+    ports:
+      - "5672:5672"     # AMQP
+      - "15672:15672"   # Web UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  app:
+    image: python:3.11-slim
+    container_name: drivenow_app
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+      - rabbitmq
+    command: ["bash", "-lc", "pip install -r requirements.txt && python drivenow_orm.py --help"]
+
+  worker:
+    image: python:3.11-slim
+    container_name: drivenow_worker
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - rabbitmq
+    command: ["bash", "-lc", "pip install -r requirements.txt && python worker.py"]
+
+volumes:
+  pgdata:

@@ -1,0 +1,1212 @@
+2026-02-27 17:16:08 | INFO | drivenow | Added car car_id=1 model=Mazda 3 year=2020 status=available
+2026-02-27 18:50:02 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 3301, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 711, in checkout
+    rec = pool._do_get()
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 388, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 673, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 899, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5433 failed: FATAL:  database "cs236363" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 447, in main
+    repo.create_tables()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 99, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 227, in create_tables
+    Base.metadata.create_all(engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\schema.py", line 5924, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 3251, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 3241, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 3277, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 3301, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 711, in checkout
+    rec = pool._do_get()
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 388, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 673, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 899, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\pool\base.py", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5433 failed: FATAL:  database "cs236363" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-27 18:52:21 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "car_id" referenced in foreign key constraint does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 447, in main
+    repo.create_tables()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 99, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 227, in create_tables
+    Base.metadata.create_all(engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\schema.py", line 5924, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 3252, in _run_ddl_visitor
+    conn._run_ddl_visitor(visitorcallable, element, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 2459, in _run_ddl_visitor
+    ).traverse_single(element)
+      ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 984, in visit_metadata
+    self.traverse_single(
+    ~~~~~~~~~~~~~~~~~~~~^
+        table,
+        ^^^^^^
+    ...<2 lines>...
+        _is_metadata_operation=True,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1022, in visit_table
+    )._invoke_with(self.connection)
+      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 321, in _invoke_with
+    return bind.execute(self)
+           ~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 187, in _execute_on_connection
+    return connection._execute_ddl(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1530, in _execute_ddl
+    ret = self._execute_context(
+        dialect,
+    ...<4 lines>...
+        compiled,
+    )
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "car_id" referenced in foreign key constraint does not exist
+
+[SQL: 
+CREATE TABLE rentals (
+	rental_id SERIAL NOT NULL, 
+	car_id INTEGER NOT NULL, 
+	customer_name VARCHAR NOT NULL, 
+	start_date DATE NOT NULL, 
+	end_date DATE, 
+	PRIMARY KEY (rental_id), 
+	CONSTRAINT rentals_end_after_start CHECK ((end_date IS NULL) OR (end_date >= start_date)), 
+	FOREIGN KEY(car_id) REFERENCES cars (car_id) ON DELETE CASCADE
+)
+
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-27 19:00:29 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "car_id" referenced in foreign key constraint does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 446, in main
+    repo.create_tables()   # <-- creates cars + rentals
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 83, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 232, in create_tables
+    Base.metadata.create_all(engine)  # <-- creates cars + rentals
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\schema.py", line 5924, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 3252, in _run_ddl_visitor
+    conn._run_ddl_visitor(visitorcallable, element, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 2459, in _run_ddl_visitor
+    ).traverse_single(element)
+      ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 984, in visit_metadata
+    self.traverse_single(
+    ~~~~~~~~~~~~~~~~~~~~^
+        table,
+        ^^^^^^
+    ...<2 lines>...
+        _is_metadata_operation=True,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1022, in visit_table
+    )._invoke_with(self.connection)
+      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 321, in _invoke_with
+    return bind.execute(self)
+           ~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\sql\ddl.py", line 187, in _execute_on_connection
+    return connection._execute_ddl(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1530, in _execute_ddl
+    ret = self._execute_context(
+        dialect,
+    ...<4 lines>...
+        compiled,
+    )
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "car_id" referenced in foreign key constraint does not exist
+
+[SQL: 
+CREATE TABLE rentals (
+	rental_id SERIAL NOT NULL, 
+	car_id INTEGER NOT NULL, 
+	customer_name VARCHAR NOT NULL, 
+	start_date DATE NOT NULL, 
+	end_date DATE, 
+	PRIMARY KEY (rental_id), 
+	CONSTRAINT rentals_end_after_start CHECK ((end_date IS NULL) OR (end_date >= start_date)), 
+	FOREIGN KEY(car_id) REFERENCES cars (car_id) ON DELETE CASCADE
+)
+
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-03-01 02:53:52 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 492, in main
+    repo.reset_tables()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 83, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 238, in reset_tables
+    conn.execute(text("DROP TABLE IF EXISTS rentals CASCADE"))
+                 ^^^^
+NameError: name 'text' is not defined. Did you mean: 'next'?
+2026-03-01 02:57:05 | INFO | drivenow | Added car car_id=1 model=Mazda 3 year=2020 status=available
+2026-03-01 20:41:15 | INFO | drivenow | Updated car car_id=1
+2026-03-01 22:30:36 | INFO | drivenow | Metrics server running on port 8000
+2026-03-03 10:36:34 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 496, in main
+    svc.delete_car(args.car_id)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 85, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 361, in delete_car
+    raise ValueError(f"Car not found: car_id={car_id}")
+ValueError: Car not found: car_id=3
+2026-03-03 10:36:52 | INFO | drivenow | Deleted car car_id=1
+2026-03-03 10:39:11 | INFO | drivenow | Added car car_id=2 model=Mazdal 78 year=2026 status=available
+2026-03-03 10:39:36 | INFO | drivenow | Added car car_id=3 model=ford 876 year=2024 status=available
+2026-03-03 10:39:55 | INFO | drivenow | Metrics server running on port 8000
+2026-03-03 10:40:23 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 496, in main
+    svc.delete_car(args.car_id)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 85, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 361, in delete_car
+    raise ValueError(f"Car not found: car_id={car_id}")
+ValueError: Car not found: car_id=1
+2026-03-03 10:40:35 | INFO | drivenow | Deleted car car_id=2
+2026-03-03 10:42:08 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 492, in main
+    svc.update_car(args.car_id, args.model, args.year, status)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 85, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 353, in update_car
+    raise ValueError(f"No car updated (car_id={car_id}).")
+ValueError: No car updated (car_id=1).
+2026-03-03 10:42:34 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 492, in main
+    svc.update_car(args.car_id, args.model, args.year, status)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 85, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 353, in update_car
+    raise ValueError(f"No car updated (car_id={car_id}).")
+ValueError: No car updated (car_id=2).
+2026-03-03 10:42:54 | INFO | drivenow | Updated car car_id=3
+2026-03-03 10:47:58 | INFO | drivenow | Added car car_id=4 model=Volkswagen 4 year=2025 status=available
+2026-03-03 11:08:21 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 505, in main
+    rid = svc.start_rental(args.car_id, args.customer, parse_iso_date(args.start))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 85, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 377, in start_rental
+    raise ValueError(f"Car is not available (status={car.status}).")
+ValueError: Car is not available (status=in_use).
+2026-03-03 11:08:31 | INFO | drivenow | Started rental rental_id=1 car_id=4 customer=1
+2026-03-03 11:10:06 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 509, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 85, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 389, in end_rental
+    raise ValueError(f"Rental not found: rental_id={rental_id}")
+ValueError: Rental not found: rental_id=3
+2026-03-03 11:10:14 | INFO | drivenow | Ended rental rental_id=1 car_id=4
+2026-03-03 12:31:03 | INFO | drivenow | Metrics server running on port 8000
+2026-03-03 12:32:07 | INFO | drivenow | Added car car_id=5 model=Toyota year=2022 status=available
+2026-03-12 13:57:50 | DEBUG | drivenow | op=db.create_tables duration=0.7976s
+2026-03-12 13:57:50 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "java"
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 740, in main
+    repo.create_tables()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 101, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 256, in create_tables
+    Base.metadata.create_all(engine, tables=[Car.__table__], checkfirst=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\sql\schema.py", line 5928, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 3267, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 3257, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 3293, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 2448, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "java"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-03-12 14:05:22 | DEBUG | drivenow | op=db.create_tables duration=0.1186s
+2026-03-12 14:05:22 | DEBUG | drivenow | op=metrics.refresh duration=0.0135s
+2026-03-12 14:06:07 | DEBUG | drivenow | op=db.create_tables duration=0.1283s
+2026-03-12 14:06:07 | DEBUG | drivenow | op=db.reset_tables duration=0.2495s
+2026-03-12 14:06:07 | DEBUG | drivenow | op=metrics.refresh duration=0.0107s
+2026-03-12 20:02:51 | DEBUG | drivenow | op=db.create_tables duration=0.0488s
+2026-03-12 20:02:51 | DEBUG | drivenow | op=db.reset_tables duration=0.1796s
+2026-03-12 20:02:51 | DEBUG | drivenow | op=metrics.refresh duration=0.0143s
+2026-03-12 20:03:25 | DEBUG | drivenow | op=cars.add duration=0.0601s
+2026-03-12 20:03:25 | INFO | drivenow | Added car car_id=1 model=Mazda 3 year=2020 status=available
+2026-03-12 20:03:25 | DEBUG | drivenow | op=metrics.refresh duration=0.0053s
+2026-03-12 20:03:29 | DEBUG | drivenow | op=service.add_car duration=4.2000s
+2026-03-12 20:03:29 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 834, in main
+    car_id = svc.add_car(args.model, args.year, CarStatus.parse(args.status))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 495, in add_car
+    self.publisher.publish(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        "CarAdded",
+        ^^^^^^^^^^^
+        {"car_id": car_id, "model": model_clean, "year": year, "status": status.value},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        routing_key="drivenow.car.added",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\CV\Ness_Assignment\mq.py", line 30, in publish
+    connection = pika.BlockingConnection(params)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2026-03-12 20:05:11 | DEBUG | drivenow | op=cars.update duration=0.0660s
+2026-03-12 20:05:11 | INFO | drivenow | Updated car car_id=1
+2026-03-12 20:05:11 | DEBUG | drivenow | op=metrics.refresh duration=0.0057s
+2026-03-12 20:05:15 | DEBUG | drivenow | op=service.update_car duration=4.1593s
+2026-03-12 20:05:15 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 839, in main
+    svc.update_car(args.car_id, args.model, args.year, status)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 520, in update_car
+    self.publisher.publish(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        "CarUpdated",
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        routing_key="drivenow.car.updated",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\CV\Ness_Assignment\mq.py", line 30, in publish
+    connection = pika.BlockingConnection(params)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2026-03-12 20:05:28 | DEBUG | drivenow | op=cars.update duration=0.0608s
+2026-03-12 20:05:28 | INFO | drivenow | Updated car car_id=1
+2026-03-12 20:05:28 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-12 20:05:32 | DEBUG | drivenow | op=service.update_car duration=4.1434s
+2026-03-12 20:05:32 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 839, in main
+    svc.update_car(args.car_id, args.model, args.year, status)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 520, in update_car
+    self.publisher.publish(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        "CarUpdated",
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        routing_key="drivenow.car.updated",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\CV\Ness_Assignment\mq.py", line 30, in publish
+    connection = pika.BlockingConnection(params)
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Saar\AppData\Roaming\Python\Python313\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2026-03-18 20:08:59 | DEBUG | drivenow | op=db.create_tables duration=0.2862s
+2026-03-18 20:09:00 | DEBUG | drivenow | op=metrics.refresh duration=0.0100s
+2026-03-18 20:09:31 | DEBUG | drivenow | op=db.create_tables duration=0.0655s
+2026-03-18 20:09:31 | DEBUG | drivenow | op=metrics.refresh duration=0.0090s
+2026-03-18 20:10:03 | DEBUG | drivenow | op=db.create_tables duration=0.0709s
+2026-03-18 20:10:03 | DEBUG | drivenow | op=metrics.refresh duration=0.0101s
+2026-03-18 20:10:30 | DEBUG | drivenow | op=db.create_tables duration=0.0255s
+2026-03-18 20:10:30 | DEBUG | drivenow | op=db.reset_tables duration=0.0872s
+2026-03-18 20:10:30 | DEBUG | drivenow | op=metrics.refresh duration=0.0112s
+2026-03-18 20:11:46 | DEBUG | drivenow | op=cars.add duration=0.0640s
+2026-03-18 20:11:46 | INFO | drivenow | Added car car_id=1 model=Nissan 39 year=1989 status=available
+2026-03-18 20:11:46 | DEBUG | drivenow | op=metrics.refresh duration=0.0049s
+2026-03-18 20:11:46 | DEBUG | drivenow | op=service.add_car duration=0.2885s
+2026-03-18 20:58:47 | DEBUG | drivenow | op=cars.update duration=0.0592s
+2026-03-18 20:58:47 | INFO | drivenow | Updated car car_id=1
+2026-03-18 20:58:47 | DEBUG | drivenow | op=metrics.refresh duration=0.0061s
+2026-03-18 20:58:48 | DEBUG | drivenow | op=service.update_car duration=0.1906s
+2026-03-18 20:59:08 | DEBUG | drivenow | op=cars.delete duration=0.0462s
+2026-03-18 20:59:08 | DEBUG | drivenow | op=service.delete_car duration=0.0464s
+2026-03-18 20:59:08 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 843, in main
+    svc.delete_car(args.car_id)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 538, in delete_car
+    raise ValueError(f"Car not found: car_id={car_id}")
+ValueError: Car not found: car_id=2
+2026-03-18 20:59:14 | DEBUG | drivenow | op=cars.delete duration=0.0542s
+2026-03-18 20:59:14 | INFO | drivenow | Deleted car car_id=1
+2026-03-18 20:59:14 | DEBUG | drivenow | op=metrics.refresh duration=0.0042s
+2026-03-18 20:59:14 | DEBUG | drivenow | op=service.delete_car duration=0.1766s
+2026-03-18 20:59:46 | DEBUG | drivenow | op=cars.add duration=0.0625s
+2026-03-18 20:59:46 | INFO | drivenow | Added car car_id=2 model=Nissan 39 year=1989 status=available
+2026-03-18 20:59:46 | DEBUG | drivenow | op=metrics.refresh duration=0.0046s
+2026-03-18 20:59:46 | DEBUG | drivenow | op=service.add_car duration=0.1841s
+2026-03-18 21:00:05 | DEBUG | drivenow | op=cars.add duration=0.0520s
+2026-03-18 21:00:05 | INFO | drivenow | Added car car_id=3 model=Ford 32 year=1990 status=available
+2026-03-18 21:00:05 | DEBUG | drivenow | op=metrics.refresh duration=0.0055s
+2026-03-18 21:00:05 | DEBUG | drivenow | op=service.add_car duration=0.2100s
+2026-03-18 21:00:15 | DEBUG | drivenow | op=cars.list duration=0.0596s
+2026-03-18 21:00:15 | DEBUG | drivenow | op=metrics.refresh duration=0.0052s
+2026-03-18 21:00:15 | DEBUG | drivenow | op=service.list_cars duration=0.0652s
+2026-03-18 21:00:29 | DEBUG | drivenow | op=cars.list duration=0.0535s
+2026-03-18 21:00:29 | DEBUG | drivenow | op=metrics.refresh duration=0.0050s
+2026-03-18 21:00:29 | DEBUG | drivenow | op=service.list_cars duration=0.0589s
+2026-03-19 15:29:41 | DEBUG | drivenow | op=cars.list duration=0.1099s
+2026-03-19 15:29:41 | DEBUG | drivenow | op=metrics.refresh duration=0.0143s
+2026-03-19 15:29:41 | DEBUG | drivenow | op=service.list_cars duration=0.1255s
+2026-03-19 15:29:53 | DEBUG | drivenow | op=cars.list duration=0.0588s
+2026-03-19 15:29:53 | DEBUG | drivenow | op=metrics.refresh duration=0.0076s
+2026-03-19 15:29:53 | DEBUG | drivenow | op=service.list_cars duration=0.0668s
+2026-03-19 15:30:01 | DEBUG | drivenow | op=cars.list duration=0.0588s
+2026-03-19 15:30:01 | DEBUG | drivenow | op=metrics.refresh duration=0.0073s
+2026-03-19 15:30:01 | DEBUG | drivenow | op=service.list_cars duration=0.0665s
+2026-03-19 15:32:59 | DEBUG | drivenow | op=cars.get duration=0.0807s
+2026-03-19 15:32:59 | DEBUG | drivenow | op=service.start_rental duration=0.0812s
+2026-03-19 15:32:59 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 852, in main
+    rid = svc.start_rental(args.car_id, args.customer, parse_iso_date(args.start))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 566, in start_rental
+    raise ValueError(f"Car not found: car_id={car_id}")
+ValueError: Car not found: car_id=1
+2026-03-19 15:33:12 | DEBUG | drivenow | op=cars.get duration=0.0596s
+2026-03-19 15:33:12 | DEBUG | drivenow | op=cars.update duration=0.0123s
+2026-03-19 15:33:12 | DEBUG | drivenow | op=rentals.start duration=0.0171s
+2026-03-19 15:33:12 | INFO | drivenow | Started rental rental_id=1 car_id=2 customer=Alice
+2026-03-19 15:33:12 | DEBUG | drivenow | op=metrics.refresh duration=0.0057s
+2026-03-19 15:33:12 | DEBUG | drivenow | op=service.start_rental duration=0.2710s
+2026-03-19 15:35:53 | DEBUG | drivenow | op=cars.get duration=0.0583s
+2026-03-19 15:35:53 | DEBUG | drivenow | op=cars.update duration=0.0059s
+2026-03-19 15:35:54 | DEBUG | drivenow | op=rentals.start duration=0.0066s
+2026-03-19 15:35:54 | INFO | drivenow | Started rental rental_id=2 car_id=3 customer=Saar
+2026-03-19 15:35:54 | DEBUG | drivenow | op=metrics.refresh duration=0.0052s
+2026-03-19 15:35:54 | DEBUG | drivenow | op=service.start_rental duration=0.2130s
+2026-03-19 15:38:04 | DEBUG | drivenow | op=rentals.get duration=0.0560s
+2026-03-19 15:38:04 | DEBUG | drivenow | op=rentals.end duration=0.0072s
+2026-03-19 15:38:04 | DEBUG | drivenow | op=cars.update duration=0.0048s
+2026-03-19 15:38:04 | INFO | drivenow | Ended rental rental_id=2 car_id=3
+2026-03-19 15:38:04 | DEBUG | drivenow | op=metrics.refresh duration=0.0041s
+2026-03-19 15:38:04 | DEBUG | drivenow | op=service.end_rental duration=0.2032s
+2026-03-19 15:38:28 | DEBUG | drivenow | op=rentals.get duration=0.0552s
+2026-03-19 15:38:28 | DEBUG | drivenow | op=service.end_rental duration=0.0555s
+2026-03-19 15:38:28 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 856, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 600, in end_rental
+    raise ValueError(f"Rental already ended (end_date={rental.end_date}).")
+ValueError: Rental already ended (end_date=2026-03-06).
+2026-03-19 15:41:49 | DEBUG | drivenow | op=rentals.get duration=0.0587s
+2026-03-19 15:41:49 | DEBUG | drivenow | op=service.end_rental duration=0.0590s
+2026-03-19 15:41:49 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 856, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 602, in end_rental
+    raise ValueError("end date cannot be before start date")
+ValueError: end date cannot be before start date
+2026-03-19 15:41:55 | DEBUG | drivenow | op=rentals.get duration=0.0520s
+2026-03-19 15:41:55 | DEBUG | drivenow | op=rentals.end duration=0.0064s
+2026-03-19 15:41:55 | DEBUG | drivenow | op=cars.update duration=0.0050s
+2026-03-19 15:41:55 | INFO | drivenow | Ended rental rental_id=1 car_id=2
+2026-03-19 15:41:55 | DEBUG | drivenow | op=metrics.refresh duration=0.0055s
+2026-03-19 15:41:55 | DEBUG | drivenow | op=service.end_rental duration=0.1944s
+2026-03-19 15:48:19 | INFO | drivenow | Metrics server running on port 8000
+2026-03-19 15:48:19 | DEBUG | drivenow | op=metrics.refresh duration=0.0731s
+2026-03-19 15:48:21 | DEBUG | drivenow | op=metrics.refresh duration=0.0067s
+2026-03-19 15:48:23 | DEBUG | drivenow | op=metrics.refresh duration=0.0062s
+2026-03-19 15:48:25 | DEBUG | drivenow | op=metrics.refresh duration=0.0042s
+2026-03-19 15:48:27 | DEBUG | drivenow | op=metrics.refresh duration=0.0066s
+2026-03-19 15:48:29 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-19 15:48:31 | DEBUG | drivenow | op=metrics.refresh duration=0.0061s
+2026-03-19 15:48:33 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-19 15:48:35 | DEBUG | drivenow | op=metrics.refresh duration=0.0071s
+2026-03-19 15:48:37 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-19 15:48:39 | DEBUG | drivenow | op=metrics.refresh duration=0.0063s
+2026-03-19 15:48:41 | DEBUG | drivenow | op=metrics.refresh duration=0.0069s
+2026-03-19 15:48:43 | DEBUG | drivenow | op=metrics.refresh duration=0.0051s
+2026-03-19 15:48:45 | DEBUG | drivenow | op=metrics.refresh duration=0.0049s
+2026-03-19 15:48:47 | DEBUG | drivenow | op=metrics.refresh duration=0.0049s
+2026-03-19 15:48:49 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-19 15:48:51 | DEBUG | drivenow | op=metrics.refresh duration=0.0043s
+2026-03-19 15:48:53 | DEBUG | drivenow | op=metrics.refresh duration=0.0065s
+2026-03-19 15:48:55 | DEBUG | drivenow | op=metrics.refresh duration=0.0046s
+2026-03-19 15:48:57 | DEBUG | drivenow | op=metrics.refresh duration=0.0051s
+2026-03-19 15:48:59 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-19 15:49:01 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-19 15:49:03 | DEBUG | drivenow | op=metrics.refresh duration=0.0055s
+2026-03-19 15:49:05 | DEBUG | drivenow | op=metrics.refresh duration=0.0052s
+2026-03-19 15:49:07 | DEBUG | drivenow | op=metrics.refresh duration=0.0042s
+2026-03-19 15:49:09 | DEBUG | drivenow | op=metrics.refresh duration=0.0045s
+2026-03-19 15:49:11 | DEBUG | drivenow | op=metrics.refresh duration=0.0045s
+2026-03-19 15:49:13 | DEBUG | drivenow | op=metrics.refresh duration=0.0036s
+2026-03-19 15:49:15 | DEBUG | drivenow | op=metrics.refresh duration=0.0053s
+2026-03-19 15:49:17 | DEBUG | drivenow | op=metrics.refresh duration=0.0077s
+2026-03-19 15:49:19 | DEBUG | drivenow | op=metrics.refresh duration=0.0050s
+2026-03-19 15:49:21 | DEBUG | drivenow | op=metrics.refresh duration=0.0069s
+2026-03-19 15:49:23 | DEBUG | drivenow | op=metrics.refresh duration=0.0051s
+2026-03-19 15:49:25 | DEBUG | drivenow | op=metrics.refresh duration=0.0052s
+2026-03-19 15:49:27 | DEBUG | drivenow | op=metrics.refresh duration=0.0046s
+2026-03-19 15:49:29 | DEBUG | drivenow | op=metrics.refresh duration=0.0033s
+2026-03-19 15:49:31 | DEBUG | drivenow | op=metrics.refresh duration=0.0056s
+2026-03-19 15:49:33 | DEBUG | drivenow | op=metrics.refresh duration=0.0047s
+2026-03-19 15:49:35 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-19 15:49:37 | DEBUG | drivenow | op=metrics.refresh duration=0.0052s
+2026-03-19 15:49:39 | DEBUG | drivenow | op=metrics.refresh duration=0.0054s
+2026-03-19 15:49:41 | DEBUG | drivenow | op=metrics.refresh duration=0.0067s
+2026-03-19 15:49:43 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-19 15:49:45 | DEBUG | drivenow | op=metrics.refresh duration=0.0047s
+2026-03-19 15:49:47 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-19 15:49:49 | DEBUG | drivenow | op=metrics.refresh duration=0.0072s
+2026-03-19 15:49:51 | DEBUG | drivenow | op=metrics.refresh duration=0.0066s
+2026-03-19 15:49:53 | DEBUG | drivenow | op=metrics.refresh duration=0.0051s
+2026-03-19 15:49:55 | DEBUG | drivenow | op=metrics.refresh duration=0.0061s
+2026-03-19 15:49:57 | DEBUG | drivenow | op=metrics.refresh duration=0.0062s
+2026-03-19 15:49:59 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-19 15:50:01 | DEBUG | drivenow | op=metrics.refresh duration=0.0090s
+2026-03-19 15:50:03 | DEBUG | drivenow | op=metrics.refresh duration=0.0067s
+2026-03-19 15:50:05 | DEBUG | drivenow | op=metrics.refresh duration=0.0070s
+2026-03-19 15:50:07 | DEBUG | drivenow | op=metrics.refresh duration=0.0046s
+2026-03-19 15:50:09 | DEBUG | drivenow | op=metrics.refresh duration=0.0056s
+2026-03-19 15:50:11 | DEBUG | drivenow | op=metrics.refresh duration=0.0056s
+2026-03-19 15:50:13 | DEBUG | drivenow | op=metrics.refresh duration=0.0051s
+2026-03-19 15:50:15 | DEBUG | drivenow | op=metrics.refresh duration=0.0057s
+2026-03-19 15:50:17 | DEBUG | drivenow | op=metrics.refresh duration=0.0065s
+2026-03-19 15:50:19 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-19 15:50:21 | DEBUG | drivenow | op=metrics.refresh duration=0.0041s
+2026-03-19 15:50:23 | DEBUG | drivenow | op=metrics.refresh duration=0.0063s
+2026-03-19 15:50:25 | DEBUG | drivenow | op=metrics.refresh duration=0.0042s
+2026-03-19 15:50:27 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-19 15:50:29 | DEBUG | drivenow | op=metrics.refresh duration=0.0037s
+2026-03-19 15:50:31 | DEBUG | drivenow | op=metrics.refresh duration=0.0042s
+2026-03-19 15:50:33 | DEBUG | drivenow | op=metrics.refresh duration=0.0050s
+2026-03-19 15:50:35 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-19 15:50:37 | DEBUG | drivenow | op=metrics.refresh duration=0.0042s
+2026-03-20 19:13:37 | DEBUG | drivenow | op=cars.add duration=0.1389s
+2026-03-20 19:13:37 | INFO | drivenow | Added car car_id=6 model=Mazda 3 year=2020 status=available
+2026-03-20 19:13:37 | DEBUG | drivenow | op=metrics.refresh duration=0.0079s
+2026-03-20 19:13:38 | DEBUG | drivenow | op=service.add_car duration=0.3082s
+2026-03-20 19:30:05 | DEBUG | drivenow | op=cars.add duration=0.0633s
+2026-03-20 19:30:05 | INFO | drivenow | Added car car_id=7 model=Tribeka 53 year=2026 status=available
+2026-03-20 19:30:05 | DEBUG | drivenow | op=metrics.refresh duration=0.0072s
+2026-03-20 19:30:05 | DEBUG | drivenow | op=service.add_car duration=0.2044s
+2026-03-20 19:35:28 | DEBUG | drivenow | op=cars.add duration=0.0573s
+2026-03-20 19:35:28 | INFO | drivenow | Added car car_id=8 model=Fiat 95 year=1992 status=available
+2026-03-20 19:35:28 | DEBUG | drivenow | op=metrics.refresh duration=0.0065s
+2026-03-20 19:35:28 | DEBUG | drivenow | op=service.add_car duration=0.2046s
+2026-03-20 19:36:45 | DEBUG | drivenow | op=cars.add duration=0.0575s
+2026-03-20 19:36:45 | INFO | drivenow | Added car car_id=9 model=Renault 21 year=1983 status=available
+2026-03-20 19:36:45 | DEBUG | drivenow | op=metrics.refresh duration=0.0066s
+2026-03-20 19:36:45 | DEBUG | drivenow | op=service.add_car duration=0.2011s
+2026-03-20 19:37:18 | DEBUG | drivenow | op=cars.add duration=0.0605s
+2026-03-20 19:37:18 | INFO | drivenow | Added car car_id=10 model=Renault 21 year=1983 status=available
+2026-03-20 19:37:18 | DEBUG | drivenow | op=metrics.refresh duration=0.0058s
+2026-03-20 19:37:19 | DEBUG | drivenow | op=service.add_car duration=0.2209s
+2026-03-20 19:39:10 | DEBUG | drivenow | op=cars.get duration=0.0520s
+2026-03-20 19:39:10 | DEBUG | drivenow | op=cars.update duration=0.0072s
+2026-03-20 19:39:10 | DEBUG | drivenow | op=rentals.start duration=0.0115s
+2026-03-20 19:39:10 | INFO | drivenow | Started rental rental_id=3 car_id=9 customer=Bob
+2026-03-20 19:39:10 | DEBUG | drivenow | op=metrics.refresh duration=0.0050s
+2026-03-20 19:39:10 | DEBUG | drivenow | op=service.start_rental duration=0.1993s
+2026-03-20 19:42:09 | DEBUG | drivenow | op=cars.add duration=0.1635s
+2026-03-20 19:42:09 | INFO | drivenow | Added car car_id=11 model=Test year=2020 status=available
+2026-03-20 19:42:09 | DEBUG | drivenow | op=metrics.refresh duration=0.0067s
+2026-03-20 19:42:09 | DEBUG | drivenow | op=service.add_car duration=0.3090s
+2026-03-20 19:46:44 | DEBUG | drivenow | op=cars.get duration=0.0920s
+2026-03-20 19:46:44 | DEBUG | drivenow | op=service.start_rental duration=0.0926s
+2026-03-20 19:46:44 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 857, in main
+    rid = svc.start_rental(args.car_id, args.customer, parse_iso_date(args.start))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 568, in start_rental
+    raise ValueError(f"Car not found: car_id={car_id}")
+ValueError: Car not found: car_id=1
+2026-03-20 19:46:52 | DEBUG | drivenow | op=cars.get duration=0.0532s
+2026-03-20 19:46:52 | DEBUG | drivenow | op=cars.update duration=0.0094s
+2026-03-20 19:46:52 | DEBUG | drivenow | op=rentals.start duration=0.0119s
+2026-03-20 19:46:52 | INFO | drivenow | Started rental rental_id=4 car_id=10 customer=Alice
+2026-03-20 19:46:52 | DEBUG | drivenow | op=metrics.refresh duration=0.0074s
+2026-03-20 19:46:52 | DEBUG | drivenow | op=service.start_rental duration=0.2308s
+2026-03-20 19:47:21 | DEBUG | drivenow | op=cars.get duration=0.0576s
+2026-03-20 19:47:21 | DEBUG | drivenow | op=cars.update duration=0.0043s
+2026-03-20 19:47:21 | DEBUG | drivenow | op=rentals.start duration=0.0070s
+2026-03-20 19:47:21 | INFO | drivenow | Started rental rental_id=5 car_id=11 customer=Alice
+2026-03-20 19:47:21 | DEBUG | drivenow | op=metrics.refresh duration=0.0067s
+2026-03-20 19:47:21 | DEBUG | drivenow | op=service.start_rental duration=0.1961s
+2026-03-20 19:49:27 | DEBUG | drivenow | op=rentals.get duration=0.0625s
+2026-03-20 19:49:27 | DEBUG | drivenow | op=service.end_rental duration=0.0628s
+2026-03-20 19:49:27 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 862, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 604, in end_rental
+    raise ValueError(f"Rental already ended (end_date={rental.end_date}).")
+ValueError: Rental already ended (end_date=2026-03-06).
+2026-03-20 19:49:40 | DEBUG | drivenow | op=rentals.get duration=0.0530s
+2026-03-20 19:49:40 | DEBUG | drivenow | op=rentals.end duration=0.0043s
+2026-03-20 19:49:40 | DEBUG | drivenow | op=cars.update duration=0.0042s
+2026-03-20 19:49:40 | INFO | drivenow | Ended rental rental_id=3 car_id=9
+2026-03-20 19:49:40 | DEBUG | drivenow | op=metrics.refresh duration=0.0048s
+2026-03-20 19:49:40 | DEBUG | drivenow | op=service.end_rental duration=0.2096s
+2026-03-20 19:51:30 | DEBUG | drivenow | op=rentals.get duration=0.0629s
+2026-03-20 19:51:30 | DEBUG | drivenow | op=rentals.end duration=0.0047s
+2026-03-20 19:51:30 | DEBUG | drivenow | op=cars.update duration=0.0038s
+2026-03-20 19:51:30 | INFO | drivenow | Ended rental rental_id=4 car_id=10
+2026-03-20 19:51:30 | DEBUG | drivenow | op=metrics.refresh duration=0.0053s
+2026-03-20 19:51:30 | DEBUG | drivenow | op=service.end_rental duration=0.2034s
+2026-03-20 19:51:38 | DEBUG | drivenow | op=rentals.get duration=0.0632s
+2026-03-20 19:51:38 | DEBUG | drivenow | op=rentals.end duration=0.0047s
+2026-03-20 19:51:38 | DEBUG | drivenow | op=cars.update duration=0.0050s
+2026-03-20 19:51:38 | INFO | drivenow | Ended rental rental_id=5 car_id=11
+2026-03-20 19:51:38 | DEBUG | drivenow | op=metrics.refresh duration=0.0063s
+2026-03-20 19:51:39 | DEBUG | drivenow | op=service.end_rental duration=0.2328s
+2026-03-20 19:54:25 | DEBUG | drivenow | op=rentals.get duration=0.0690s
+2026-03-20 19:54:25 | DEBUG | drivenow | op=service.end_rental duration=0.0694s
+2026-03-20 19:54:25 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 864, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 604, in end_rental
+    raise ValueError(f"Rental already ended (end_date={rental.end_date}).")
+ValueError: Rental already ended (end_date=2026-03-06).
+2026-03-20 19:54:30 | DEBUG | drivenow | op=rentals.get duration=0.1694s
+2026-03-20 19:54:30 | DEBUG | drivenow | op=service.end_rental duration=0.1697s
+2026-03-20 19:54:30 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 864, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 604, in end_rental
+    raise ValueError(f"Rental already ended (end_date={rental.end_date}).")
+ValueError: Rental already ended (end_date=2026-03-20).
+2026-03-20 19:54:35 | DEBUG | drivenow | op=rentals.get duration=0.1758s
+2026-03-20 19:54:35 | DEBUG | drivenow | op=service.end_rental duration=0.1761s
+2026-03-20 19:54:35 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 864, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 604, in end_rental
+    raise ValueError(f"Rental already ended (end_date={rental.end_date}).")
+ValueError: Rental already ended (end_date=2026-03-20).
+2026-03-20 19:54:39 | DEBUG | drivenow | op=rentals.get duration=0.0525s
+2026-03-20 19:54:39 | DEBUG | drivenow | op=service.end_rental duration=0.0527s
+2026-03-20 19:54:39 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 864, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 604, in end_rental
+    raise ValueError(f"Rental already ended (end_date={rental.end_date}).")
+ValueError: Rental already ended (end_date=2026-03-20).
+2026-03-20 19:54:43 | DEBUG | drivenow | op=rentals.get duration=0.0522s
+2026-03-20 19:54:43 | DEBUG | drivenow | op=service.end_rental duration=0.0524s
+2026-03-20 19:54:43 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 864, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 602, in end_rental
+    raise ValueError(f"Rental not found: rental_id={rental_id}")
+ValueError: Rental not found: rental_id=6
+2026-03-20 19:54:50 | DEBUG | drivenow | op=cars.get duration=0.0644s
+2026-03-20 19:54:50 | DEBUG | drivenow | op=cars.update duration=0.0136s
+2026-03-20 19:54:50 | DEBUG | drivenow | op=rentals.start duration=0.0069s
+2026-03-20 19:54:50 | INFO | drivenow | Started rental rental_id=6 car_id=11 customer=Alice
+2026-03-20 19:54:51 | DEBUG | drivenow | op=metrics.refresh duration=0.0047s
+2026-03-20 19:54:51 | DEBUG | drivenow | op=service.start_rental duration=0.2172s
+2026-03-20 19:54:58 | DEBUG | drivenow | op=rentals.get duration=0.0505s
+2026-03-20 19:54:58 | DEBUG | drivenow | op=rentals.end duration=0.0069s
+2026-03-20 19:54:58 | DEBUG | drivenow | op=cars.update duration=0.0048s
+2026-03-20 19:54:58 | INFO | drivenow | Ended rental rental_id=6 car_id=11
+2026-03-20 19:54:58 | DEBUG | drivenow | op=metrics.refresh duration=0.0054s
+2026-03-20 19:54:58 | DEBUG | drivenow | op=service.end_rental duration=0.2066s
+2026-03-20 20:00:12 | DEBUG | drivenow | op=cars.add duration=0.1514s
+2026-03-20 20:00:12 | INFO | drivenow | Added car car_id=12 model=Tesla 33 year=2025 status=available
+2026-03-20 20:00:12 | DEBUG | drivenow | op=metrics.refresh duration=0.0177s
+2026-03-20 20:00:12 | DEBUG | drivenow | op=service.add_car duration=0.3041s
+2026-03-20 20:00:41 | DEBUG | drivenow | op=cars.get duration=0.0706s
+2026-03-20 20:00:41 | DEBUG | drivenow | op=cars.update duration=0.0098s
+2026-03-20 20:00:41 | DEBUG | drivenow | op=rentals.start duration=0.0121s
+2026-03-20 20:00:41 | INFO | drivenow | Started rental rental_id=7 car_id=12 customer=Assaf
+2026-03-20 20:00:41 | DEBUG | drivenow | op=metrics.refresh duration=0.0078s
+2026-03-20 20:00:41 | DEBUG | drivenow | op=service.start_rental duration=0.2344s
+2026-03-20 20:01:24 | DEBUG | drivenow | op=cars.get duration=0.1100s
+2026-03-20 20:01:24 | DEBUG | drivenow | op=service.start_rental duration=0.1104s
+2026-03-20 20:01:24 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 860, in main
+    rid = svc.start_rental(args.car_id, args.customer, parse_iso_date(args.start))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 568, in start_rental
+    raise ValueError(f"Car not found: car_id={car_id}")
+ValueError: Car not found: car_id=13
+2026-03-20 20:01:42 | DEBUG | drivenow | op=cars.add duration=0.0984s
+2026-03-20 20:01:42 | INFO | drivenow | Added car car_id=13 model=Tesr 33 year=2026 status=available
+2026-03-20 20:01:42 | DEBUG | drivenow | op=metrics.refresh duration=0.0089s
+2026-03-20 20:01:42 | DEBUG | drivenow | op=service.add_car duration=0.2445s
+2026-03-20 20:02:05 | DEBUG | drivenow | op=cars.get duration=0.0979s
+2026-03-20 20:02:05 | DEBUG | drivenow | op=cars.update duration=0.0089s
+2026-03-20 20:02:05 | DEBUG | drivenow | op=rentals.start duration=0.0095s
+2026-03-20 20:02:05 | INFO | drivenow | Started rental rental_id=8 car_id=13 customer=Alice
+2026-03-20 20:02:05 | DEBUG | drivenow | op=metrics.refresh duration=0.0090s
+2026-03-20 20:02:05 | DEBUG | drivenow | op=service.start_rental duration=0.2762s
+2026-03-20 20:02:35 | DEBUG | drivenow | op=rentals.get duration=0.0865s
+2026-03-20 20:02:35 | DEBUG | drivenow | op=service.end_rental duration=0.0869s
+2026-03-20 20:02:35 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 864, in main
+    svc.end_rental(args.rental_id, parse_iso_date(args.end))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 602, in end_rental
+    raise ValueError(f"Rental not found: rental_id={rental_id}")
+ValueError: Rental not found: rental_id=13
+2026-03-20 20:02:43 | DEBUG | drivenow | op=rentals.get duration=0.0782s
+2026-03-20 20:02:43 | DEBUG | drivenow | op=rentals.end duration=0.0075s
+2026-03-20 20:02:43 | DEBUG | drivenow | op=cars.update duration=0.0073s
+2026-03-20 20:02:43 | INFO | drivenow | Ended rental rental_id=7 car_id=12
+2026-03-20 20:02:43 | DEBUG | drivenow | op=metrics.refresh duration=0.0098s
+2026-03-20 20:02:43 | DEBUG | drivenow | op=service.end_rental duration=0.2634s
+2026-03-20 20:04:38 | DEBUG | drivenow | op=cars.get duration=0.0770s
+2026-03-20 20:04:38 | DEBUG | drivenow | op=service.start_rental duration=0.0773s
+2026-03-20 20:04:38 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 860, in main
+    rid = svc.start_rental(args.car_id, args.customer, parse_iso_date(args.start))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 570, in start_rental
+    raise ValueError(f"Car is not available (status={car.status}).")
+ValueError: Car is not available (status=in_use).
+2026-03-20 20:04:46 | DEBUG | drivenow | op=cars.get duration=0.1798s
+2026-03-20 20:04:46 | DEBUG | drivenow | op=service.start_rental duration=0.1803s
+2026-03-20 20:04:46 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 860, in main
+    rid = svc.start_rental(args.car_id, args.customer, parse_iso_date(args.start))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 568, in start_rental
+    raise ValueError(f"Car not found: car_id={car_id}")
+ValueError: Car not found: car_id=14
+2026-03-20 20:04:53 | DEBUG | drivenow | op=cars.get duration=0.0664s
+2026-03-20 20:04:53 | DEBUG | drivenow | op=cars.update duration=0.0074s
+2026-03-20 20:04:53 | DEBUG | drivenow | op=rentals.start duration=0.0100s
+2026-03-20 20:04:53 | INFO | drivenow | Started rental rental_id=9 car_id=12 customer=Alice
+2026-03-20 20:04:53 | DEBUG | drivenow | op=metrics.refresh duration=0.0081s
+2026-03-20 20:04:53 | DEBUG | drivenow | op=service.start_rental duration=0.2368s
+2026-03-20 20:06:15 | DEBUG | drivenow | op=cars.add duration=0.1970s
+2026-03-20 20:06:15 | INFO | drivenow | Added car car_id=14 model=werwer year=2026 status=available
+2026-03-20 20:06:15 | DEBUG | drivenow | op=metrics.refresh duration=0.0118s
+2026-03-20 20:06:15 | DEBUG | drivenow | op=service.add_car duration=0.3552s
+2026-03-20 20:06:45 | DEBUG | drivenow | op=cars.get duration=0.0962s
+2026-03-20 20:06:45 | DEBUG | drivenow | op=cars.update duration=0.0099s
+2026-03-20 20:06:45 | DEBUG | drivenow | op=rentals.start duration=0.0091s
+2026-03-20 20:06:45 | INFO | drivenow | Started rental rental_id=10 car_id=14 customer=Alice
+2026-03-20 20:06:45 | DEBUG | drivenow | op=metrics.refresh duration=0.0088s
+2026-03-20 20:06:45 | DEBUG | drivenow | op=service.start_rental duration=0.2797s
+2026-03-20 20:07:00 | DEBUG | drivenow | op=rentals.get duration=0.1214s
+2026-03-20 20:07:00 | DEBUG | drivenow | op=rentals.end duration=0.0098s
+2026-03-20 20:07:00 | DEBUG | drivenow | op=cars.update duration=0.0214s
+2026-03-20 20:07:00 | INFO | drivenow | Ended rental rental_id=8 car_id=13
+2026-03-20 20:07:00 | DEBUG | drivenow | op=metrics.refresh duration=0.0234s
+2026-03-20 20:07:00 | DEBUG | drivenow | op=service.end_rental duration=0.4940s
+2026-03-20 20:07:54 | DEBUG | drivenow | op=cars.get duration=0.0974s
+2026-03-20 20:07:54 | DEBUG | drivenow | op=cars.update duration=0.0138s
+2026-03-20 20:07:54 | DEBUG | drivenow | op=rentals.start duration=0.0165s
+2026-03-20 20:07:54 | INFO | drivenow | Started rental rental_id=11 car_id=10 customer=Alice
+2026-03-20 20:07:54 | DEBUG | drivenow | op=metrics.refresh duration=0.0128s
+2026-03-20 20:07:54 | DEBUG | drivenow | op=service.start_rental duration=0.2955s
+2026-03-21 19:48:51 | DEBUG | drivenow | op=cars.get duration=0.1179s
+2026-03-21 19:48:51 | DEBUG | drivenow | op=cars.update duration=0.0142s
+2026-03-21 19:48:51 | DEBUG | drivenow | op=rentals.start duration=0.0138s
+2026-03-21 19:48:51 | INFO | drivenow | Started rental rental_id=12 car_id=11 customer=Alice
+2026-03-21 19:48:51 | DEBUG | drivenow | op=metrics.refresh duration=0.0124s
+2026-03-21 19:48:51 | DEBUG | drivenow | op=service.start_rental duration=0.2927s
+2026-03-21 19:49:01 | DEBUG | drivenow | op=rentals.get duration=0.0551s
+2026-03-21 19:49:01 | DEBUG | drivenow | op=rentals.end duration=0.0071s
+2026-03-21 19:49:01 | DEBUG | drivenow | op=cars.update duration=0.0073s
+2026-03-21 19:49:01 | INFO | drivenow | Ended rental rental_id=9 car_id=12
+2026-03-21 19:49:01 | DEBUG | drivenow | op=metrics.refresh duration=0.0059s
+2026-03-21 19:49:02 | DEBUG | drivenow | op=service.end_rental duration=0.2012s
+2026-03-21 19:51:02 | DEBUG | drivenow | op=cars.add duration=0.0816s
+2026-03-21 19:51:02 | INFO | drivenow | Added car car_id=15 model=blue year=2023 status=available
+2026-03-21 19:51:02 | DEBUG | drivenow | op=metrics.refresh duration=0.0082s
+2026-03-21 19:51:02 | DEBUG | drivenow | op=service.add_car duration=0.2247s
+2026-03-21 19:51:25 | DEBUG | drivenow | op=cars.add duration=0.0765s
+2026-03-21 19:51:25 | INFO | drivenow | Added car car_id=16 model=green year=2024 status=available
+2026-03-21 19:51:25 | DEBUG | drivenow | op=metrics.refresh duration=0.0064s
+2026-03-21 19:51:25 | DEBUG | drivenow | op=service.add_car duration=0.2126s
+2026-03-21 19:51:41 | DEBUG | drivenow | op=cars.get duration=0.0580s
+2026-03-21 19:51:41 | DEBUG | drivenow | op=cars.update duration=0.0048s
+2026-03-21 19:51:41 | DEBUG | drivenow | op=rentals.start duration=0.0064s
+2026-03-21 19:51:41 | INFO | drivenow | Started rental rental_id=13 car_id=12 customer=Alice
+2026-03-21 19:51:41 | DEBUG | drivenow | op=metrics.refresh duration=0.0043s
+2026-03-21 19:51:41 | DEBUG | drivenow | op=service.start_rental duration=0.2184s
+2026-03-21 19:51:53 | DEBUG | drivenow | op=rentals.get duration=0.0587s
+2026-03-21 19:51:53 | DEBUG | drivenow | op=rentals.end duration=0.0052s
+2026-03-21 19:51:53 | DEBUG | drivenow | op=cars.update duration=0.0057s
+2026-03-21 19:51:53 | INFO | drivenow | Ended rental rental_id=10 car_id=14
+2026-03-21 19:51:53 | DEBUG | drivenow | op=metrics.refresh duration=0.0055s
+2026-03-21 19:51:53 | DEBUG | drivenow | op=service.end_rental duration=0.2046s
+2026-03-26 17:34:10 | DEBUG | drivenow | op=cars.get duration=0.1492s
+2026-03-26 17:34:10 | DEBUG | drivenow | op=cars.update duration=0.0100s
+2026-03-26 17:34:10 | DEBUG | drivenow | op=rentals.start duration=0.0142s
+2026-03-26 17:34:10 | INFO | drivenow | Started rental rental_id=14 car_id=13 customer=Alice
+2026-03-26 17:34:10 | DEBUG | drivenow | op=metrics.refresh duration=0.0049s
+2026-03-26 17:34:10 | DEBUG | drivenow | op=service.start_rental duration=0.3973s
+2026-03-26 17:34:23 | DEBUG | drivenow | op=rentals.get duration=0.0502s
+2026-03-26 17:34:23 | DEBUG | drivenow | op=rentals.end duration=0.0052s
+2026-03-26 17:34:23 | DEBUG | drivenow | op=cars.update duration=0.0054s
+2026-03-26 17:34:23 | INFO | drivenow | Ended rental rental_id=14 car_id=13
+2026-03-26 17:34:23 | DEBUG | drivenow | op=metrics.refresh duration=0.0042s
+2026-03-26 17:34:23 | DEBUG | drivenow | op=service.end_rental duration=0.2022s
+2026-03-28 22:15:51 | DEBUG | drivenow | op=cars.get duration=0.2258s
+2026-03-28 22:15:51 | DEBUG | drivenow | op=cars.update duration=0.0139s
+2026-03-28 22:15:51 | DEBUG | drivenow | op=rentals.start duration=0.0206s
+2026-03-28 22:15:51 | INFO | drivenow | Started rental rental_id=15 car_id=14 customer=Alice
+2026-03-28 22:15:51 | DEBUG | drivenow | op=metrics.refresh duration=0.0101s
+2026-03-28 22:15:52 | DEBUG | drivenow | op=service.start_rental duration=0.4528s
+2026-03-28 22:16:06 | DEBUG | drivenow | op=rentals.get duration=0.0699s
+2026-03-28 22:16:06 | DEBUG | drivenow | op=rentals.end duration=0.0067s
+2026-03-28 22:16:06 | DEBUG | drivenow | op=cars.update duration=0.0060s
+2026-03-28 22:16:06 | INFO | drivenow | Ended rental rental_id=15 car_id=14
+2026-03-28 22:16:06 | DEBUG | drivenow | op=metrics.refresh duration=0.0043s
+2026-03-28 22:16:06 | DEBUG | drivenow | op=service.end_rental duration=0.2233s
+2026-03-28 22:18:12 | DEBUG | drivenow | op=cars.get duration=0.0736s
+2026-03-28 22:18:12 | DEBUG | drivenow | op=cars.update duration=0.0071s
+2026-03-28 22:18:12 | DEBUG | drivenow | op=rentals.start duration=0.0109s
+2026-03-28 22:18:12 | INFO | drivenow | Started rental rental_id=16 car_id=14 customer=Alice
+2026-03-28 22:18:12 | DEBUG | drivenow | op=metrics.refresh duration=0.0081s
+2026-03-28 22:18:12 | DEBUG | drivenow | op=service.start_rental duration=0.2583s
+2026-03-28 22:18:52 | DEBUG | drivenow | op=cars.get duration=0.0663s
+2026-03-28 22:18:52 | DEBUG | drivenow | op=service.start_rental duration=0.0666s
+2026-03-28 22:18:52 | ERROR | drivenow | Error
+Traceback (most recent call last):
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 860, in main
+    rid = svc.start_rental(args.car_id, args.customer, parse_iso_date(args.start))
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 185, in wrapper
+    return fn(*args, **kwargs)
+  File "C:\CV\Ness_Assignment\drivenow_orm.py", line 570, in start_rental
+    raise ValueError(f"Car is not available (status={car.status}).")
+ValueError: Car is not available (status=in_use).
+2026-03-28 22:19:04 | DEBUG | drivenow | op=rentals.get duration=0.0962s
+2026-03-28 22:19:04 | DEBUG | drivenow | op=rentals.end duration=0.0093s
+2026-03-28 22:19:04 | DEBUG | drivenow | op=cars.update duration=0.0085s
+2026-03-28 22:19:04 | INFO | drivenow | Ended rental rental_id=16 car_id=14
+2026-03-28 22:19:04 | DEBUG | drivenow | op=metrics.refresh duration=0.0101s
+2026-03-28 22:19:04 | DEBUG | drivenow | op=service.end_rental duration=0.2698s
+2026-03-28 22:19:13 | DEBUG | drivenow | op=cars.get duration=0.0633s
+2026-03-28 22:19:13 | DEBUG | drivenow | op=cars.update duration=0.0065s
+2026-03-28 22:19:13 | DEBUG | drivenow | op=rentals.start duration=0.0086s
+2026-03-28 22:19:13 | INFO | drivenow | Started rental rental_id=17 car_id=14 customer=Alice
+2026-03-28 22:19:13 | DEBUG | drivenow | op=metrics.refresh duration=0.0061s
+2026-03-28 22:19:13 | DEBUG | drivenow | op=service.start_rental duration=0.2305s
+2026-03-28 22:19:25 | DEBUG | drivenow | op=rentals.get duration=0.0710s
+2026-03-28 22:19:25 | DEBUG | drivenow | op=rentals.end duration=0.0056s
+2026-03-28 22:19:25 | DEBUG | drivenow | op=cars.update duration=0.0057s
+2026-03-28 22:19:25 | INFO | drivenow | Ended rental rental_id=17 car_id=14
+2026-03-28 22:19:25 | DEBUG | drivenow | op=metrics.refresh duration=0.0041s
+2026-03-28 22:19:25 | DEBUG | drivenow | op=service.end_rental duration=0.2147s
